@@ -1,0 +1,2 @@
+c:\users\david\documents\visual studio 2012\Projects\MachineACafe\MachineACafe\bin\Debug\MachineACafe.exe.config
+C:\Users\David\documents\visual studio 2012\Projects\MachineACafe\MachineACafe\obj\Debug\MachineACafe.csprojResolveAssemblyReference.cache

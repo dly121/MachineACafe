@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MachineACafe.Boissons;
 
-namespace MachineACafe
+namespace MachineACafe.Etat
 {
-    class EtatSelection : EtatAbstrait
+    class EtatPasDePiece : EtatAbstrait
     {
-        private Random rand;
-
         public override void ChoisirIngredient(EIngredient unIngredient)
         {
             throw new NotImplementedException();
@@ -22,12 +21,7 @@ namespace MachineACafe
 
         public override void ChoisirUneBoisson(EBoisson uneBoisson)
         {
-            Console.WriteLine(EBoisson.Expresso + "2.40 euros");
-            Console.WriteLine(EBoisson.ExpressoGrains + "2.50 euros");
-            Console.WriteLine(EBoisson.CaféLong + "2.50 euros");
-            Console.WriteLine(EBoisson.CaféLonggrains + "2.60 euros");
-            Console.WriteLine(EBoisson.Chocolat + "4.40 euros");
-            Console.WriteLine(EBoisson.Capuccino + "4.50 euros");
+            throw new NotImplementedException();
         }
 
         public override void InsererMonnaie(double nbreEuros)

@@ -41,14 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Boisson.cs" />
-    <Compile Include="EtatAbstrait.cs" />
-    <Compile Include="EtatEnCoursDeLivraison.cs" />
-    <Compile Include="EtatGagnant.cs" />
-    <Compile Include="EtatMaintenance.cs" />
-    <Compile Include="EtatPasDePiece.cs" />
-    <Compile Include="EtatSelection.cs" />
-    <Compile Include="MachineACafe.cs" />
+    <Compile Include="Boissons\Boisson.cs" />
+    <Compile Include="Etat\EtatAbstrait.cs" />
+    <Compile Include="Etat\EtatEnCoursDeLivraison.cs" />
+    <Compile Include="Etat\EtatGagnant.cs" />
+    <Compile Include="Etat\EtatMaintenance.cs" />
+    <Compile Include="Etat\EtatPasDePiece.cs" />
+    <Compile Include="Etat\EtatSelection.cs" />
+    <Compile Include="MachineACafe\MachineACafe.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

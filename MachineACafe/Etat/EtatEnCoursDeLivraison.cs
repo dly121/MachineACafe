@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MachineACafe.Boissons;
 
-namespace MachineACafe
+namespace MachineACafe.Etat
 {
     class EtatEnCoursDeLivraison : EtatAbstrait
     {

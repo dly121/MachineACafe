@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MachineACafe.Boissons;
 
 namespace MachineACafe
 {
@@ -14,6 +15,10 @@ namespace MachineACafe
 
         public bool AssezArgent(EBoisson uneBoisson)
         {
+            if (uneBoisson != null)
+            {
+                
+            }
             return false;
         }
 
@@ -32,10 +37,18 @@ namespace MachineACafe
 
         public void ChoisirSucre(int dosage)
         {
+            if (dosage < 0 && dosage > 5)
+                Console.WriteLine("Dosage sucre invalide.");
+            else
+            {
+                this.DosageSucre = dosage;
+            }
         }
 
         public void ChoisirUnBoisson(EBoisson uneBoisson)
         {
+            if (uneBoisson != null && uneBoisson.ToString() != string.Empty)
+                BoissonCourante = uneBoisson;
         }
 
         public void InsererMonnaie(double nbreEuros)

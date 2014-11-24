@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MachineACafe.Boissons;
 
-namespace MachineACafe.Etat
+namespace MachineACafe
 {
     class EtatMaintenance : EtatAbstrait
     {
+        public EtatMaintenance(MachineACafe uneMachine)
+            : base(uneMachine)
+        {
+            machineACafe = uneMachine;
+            machineACafe.ChangeEtat(EEtat.EnMaintenance);
+        }
 
         public override void ChoisirIngredient(EIngredient unIngredient)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("En maintenance");
         }
 
         public override void ChoisirSucre(int dosage)
@@ -32,7 +37,7 @@ namespace MachineACafe.Etat
 
         public override void PasserEnMaintenance()
         {
-            throw new NotImplementedException();
+            machineACafe.PasserEnMaintenance();
         }
 
         public override void RecuperationGobelet()

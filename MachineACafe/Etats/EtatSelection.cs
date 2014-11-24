@@ -3,26 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MachineACafe.Boissons;
 
-namespace MachineACafe.Etat
+namespace MachineACafe
 {
     class EtatSelection : EtatAbstrait
     {
         private Random rand;
 
+        public EtatSelection(MachineACafe uneMachine)
+            : base(uneMachine)
+        {
+            machineACafe = uneMachine;
+            machineACafe.ChangeEtat(EEtat.Selection);
+            rand = null;
+        }
+
         public override void ChoisirIngredient(EIngredient unIngredient)
         {
-            throw new NotImplementedException();
+            machineACafe.ChoisirIngredient(unIngredient);
         }
 
         public override void ChoisirSucre(int dosage)
         {
-            throw new NotImplementedException();
+            machineACafe.ChoisirSucre(dosage);
         }
 
         public override void ChoisirUneBoisson(EBoisson uneBoisson)
         {
+            machineACafe.ChoisirUneBoisson(uneBoisson);
+            /*
             switch(uneBoisson)
             {
                 case EBoisson.Expresso:
@@ -46,6 +55,7 @@ namespace MachineACafe.Etat
                 default : Console.WriteLine(EBoisson.Aucune + " boisson sélectionnée.");
                     break;
             }
+            */
         }
 
         public override void InsererMonnaie(double nbreEuros)

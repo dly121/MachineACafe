@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MachineACafe.Boissons;
 
-namespace MachineACafe.Etat
+namespace MachineACafe
 {
-    class EtatPasDePiece : EtatAbstrait
+    class EtatEnCoursDeLivraison : EtatAbstrait
     {
+        public EtatEnCoursDeLivraison(MachineACafe uneMachine)
+            : base(uneMachine)
+        {
+            machineACafe = uneMachine;
+            machineACafe.ChangeEtat(EEtat.EnCoursDeLivraison);
+        }
+
         public override void ChoisirIngredient(EIngredient unIngredient)
         {
             throw new NotImplementedException();
@@ -36,17 +42,17 @@ namespace MachineACafe.Etat
 
         public override void RecuperationGobelet()
         {
-            throw new NotImplementedException();
+            machineACafe.RecuperationGobelet();
         }
 
         public override void RecupererMonnaie()
         {
-            throw new NotImplementedException();
+            machineACafe.RecuperationMonnaie();
         }
 
         public override void RendreMonnaie()
         {
-            throw new NotImplementedException();
+            machineACafe.RendreMonnaie();
         }
     }
 }

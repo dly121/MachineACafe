@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MachineACafe.Boissons;
 
-namespace MachineACafe.Etat
+namespace MachineACafe
 {
     abstract class EtatAbstrait
     {
-        MachineACafe machineACafe;
+        protected MachineACafe machineACafe;
 
         public abstract void ChoisirIngredient(EIngredient unIngredient);
         public abstract void ChoisirSucre(int dosage);
@@ -20,9 +19,13 @@ namespace MachineACafe.Etat
         public abstract void RecupererMonnaie();
         public abstract void RendreMonnaie();
 
-        public EtatAbstrait(MachineACafe uneMachine)
+        protected EtatAbstrait(MachineACafe uneMachine)
         {
-            machineACafe = new MachineACafe();
+        }
+
+        public EtatAbstrait()
+        {
+            // TODO: Complete member initialization
         }
     }
 }

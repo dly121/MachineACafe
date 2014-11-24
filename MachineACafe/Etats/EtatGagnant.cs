@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MachineACafe.Boissons;
 
-namespace MachineACafe.Etat
+namespace MachineACafe
 {
     class EtatGagnant : EtatAbstrait
     {
+        public EtatGagnant(MachineACafe uneMachine)
+            : base(uneMachine)
+        {
+            machineACafe = uneMachine;
+            machineACafe.ChangeEtat(EEtat.Gagnant);
+        }
+
         public override void ChoisirIngredient(EIngredient unIngredient)
         {
             throw new NotImplementedException();

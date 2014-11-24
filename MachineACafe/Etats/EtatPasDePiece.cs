@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MachineACafe.Boissons;
 
-namespace MachineACafe.Etat
+namespace MachineACafe
 {
-    class EtatEnCoursDeLivraison : EtatAbstrait
+    class EtatPasDePiece : EtatAbstrait
     {
+
+        public EtatPasDePiece(MachineACafe uneMachine)
+            : base(uneMachine)
+        {
+            machineACafe = uneMachine;
+            machineACafe.ChangeEtat(EEtat.PasDePiece);
+        }
+
+
         public override void ChoisirIngredient(EIngredient unIngredient)
         {
             throw new NotImplementedException();
@@ -26,7 +34,14 @@ namespace MachineACafe.Etat
 
         public override void InsererMonnaie(double nbreEuros)
         {
-            throw new NotImplementedException();
+            if (nbreEuros <= 0)
+            {
+                Console.WriteLine("Insérer de la monnaie");
+            }
+            else
+            {
+                machineACafe.InsererMonnaie(nbreEuros); 
+            }
         }
 
         public override void PasserEnMaintenance()
@@ -41,12 +56,12 @@ namespace MachineACafe.Etat
 
         public override void RecupererMonnaie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Crédit: " + machineACafe.CalculRenduArgent());
         }
 
         public override void RendreMonnaie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Crédit: " + machineACafe.CalculRenduArgent());
         }
     }
 }

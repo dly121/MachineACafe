@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MachineACafe
 {
-    class EtatMaintenance : EtatAbstrait
+    internal class EtatMaintenance : EtatAbstrait
     {
         public EtatMaintenance(MachineACafe uneMachine)
             : base(uneMachine)

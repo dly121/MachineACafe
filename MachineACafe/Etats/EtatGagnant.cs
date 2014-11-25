@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace MachineACafe
 {
-    class EtatGagnant : EtatAbstrait
+    internal class EtatGagnant : EtatAbstrait
     {
         public EtatGagnant(MachineACafe uneMachine)
             : base(uneMachine)
         {
             machineACafe = uneMachine;
             machineACafe.ChangeEtat(EEtat.Gagnant);
+            machineACafe.ChoisirUneBoisson(EBoisson.Chocolat);
         }
 
         public override void ChoisirIngredient(EIngredient unIngredient)
@@ -27,7 +28,8 @@ namespace MachineACafe
 
         public override void ChoisirUneBoisson(EBoisson uneBoisson)
         {
-            throw new NotImplementedException();
+            machineACafe.ChoisirUneBoisson(uneBoisson);
+            machineACafe.ChoisirUneBoisson(EBoisson.Chocolat);
         }
 
         public override void InsererMonnaie(double nbreEuros)

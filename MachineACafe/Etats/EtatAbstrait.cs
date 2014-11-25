@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MachineACafe
 {
-    abstract class EtatAbstrait
+    internal abstract class EtatAbstrait
     {
-        protected MachineACafe machineACafe;
+        protected internal MachineACafe machineACafe;
 
         public abstract void ChoisirIngredient(EIngredient unIngredient);
         public abstract void ChoisirSucre(int dosage);

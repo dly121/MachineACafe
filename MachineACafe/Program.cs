@@ -6,25 +6,19 @@ using System.Threading.Tasks;
 
 namespace MachineACafe
 {
-    class Program
+    internal class Program
     {
         public static void Main(string[] args)
         {
             //Initialisation des boissons
-            var boissonDico = new Dictionary<EBoisson, Boisson>();
-            boissonDico.Add(EBoisson.Aucune, new Boisson(EBoisson.Aucune, 0, 0));
-            boissonDico.Add(EBoisson.Expresso, new Boisson(EBoisson.Expresso, 2.40, 1));
-            boissonDico.Add(EBoisson.CaféLong, new Boisson(EBoisson.CaféLong, 3.40, 2));
-            boissonDico.Add(EBoisson.ExpressoGrains, new Boisson(EBoisson.ExpressoGrains, 2.50, 1));
-            boissonDico.Add(EBoisson.CaféLongGrains, new Boisson(EBoisson.CaféLongGrains, 3.50, 2));
-            boissonDico.Add(EBoisson.Chocolat, new Boisson(EBoisson.Chocolat, 4.40, 2));
-            boissonDico.Add(EBoisson.Capuccino, new Boisson(EBoisson.Capuccino, 4.50, 2));
+            MachineACafe machine = new MachineACafe();
 
-            foreach (var boissons in boissonDico)
+            foreach (var boissons in machine.boissonDico)
             {
-                Console.WriteLine(boissonDico.Values.ToString());
+                Console.WriteLine(machine.boissonDico.Values.ToString());
             }
 
+            Console.ReadLine();
         }
     }
 }

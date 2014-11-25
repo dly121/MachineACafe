@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MachineACafe
 {
-    class EtatPasDePiece : EtatAbstrait
+    internal class EtatPasDePiece : EtatAbstrait
     {
 
         public EtatPasDePiece(MachineACafe uneMachine)

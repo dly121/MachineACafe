@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MachineACafe
 {
-    class EtatEnCoursDeLivraison : EtatAbstrait
+    internal class EtatEnCoursDeLivraison : EtatAbstrait
     {
         public EtatEnCoursDeLivraison(MachineACafe uneMachine)
             : base(uneMachine)
@@ -47,7 +47,7 @@ namespace MachineACafe
 
         public override void RecupererMonnaie()
         {
-            machineACafe.RecuperationMonnaie();
+            machineACafe.RecupererMonnaie();
         }
 
         public override void RendreMonnaie()

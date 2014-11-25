@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MachineACafe
 {
-    class EtatSelection : EtatAbstrait
+    internal class EtatSelection : EtatAbstrait
     {
         private Random rand;
 

@@ -13,7 +13,7 @@ namespace MachineACafe
         Expresso = (long)2.40,
         CaféLong = (long)3.40,
         ExpressoGrains = (long)2.50,
-        CaféLongGrains = (long)3.60,
+        CaféLongGrains = (long)3.50,
         Chocolat = (long)4.40,
         Capuccino = (long)4.50
     };
@@ -36,13 +36,13 @@ namespace MachineACafe
         EnMaintenance = 4
     };
 
-    class Boisson
+    internal class Boisson
     {
-        private EBoisson Nom { get; set; }
-        private double Cout { get; set; }
-        private int NombreDoses { get; set; }
+        internal string Nom { get; set; }
+        internal double Cout { get; set; }
+        internal int NombreDoses { get; set; }
 
-        public Boisson(EBoisson unNom, double unCout, int nbreDoses)
+        public Boisson(string unNom, double unCout, int nbreDoses)
         {
             Nom = unNom;
             Cout = unCout;

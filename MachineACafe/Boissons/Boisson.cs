@@ -9,13 +9,13 @@ namespace MachineACafe
 {
     enum EBoisson : long
     {
-        Aucune = 0,
-        Expresso = (long)2.40,
-        CaféLong = (long)3.40,
-        ExpressoGrains = (long)2.50,
-        CaféLongGrains = (long)3.50,
-        Chocolat = (long)4.40,
-        Capuccino = (long)4.50
+        Aucune,
+        Expresso,
+        CaféLong,
+        ExpressoGrains,
+        CaféLongGrains,
+        Chocolat,
+        Capuccino
     };
 
     enum EIngredient
@@ -47,6 +47,16 @@ namespace MachineACafe
             Nom = unNom;
             Cout = unCout;
             NombreDoses = nbreDoses;
+        }
+
+        public string getNom()
+        {
+            return Nom;
+        }
+
+        public double getCout()
+        {
+            return Cout;
         }
     }
 }

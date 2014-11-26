@@ -43,6 +43,7 @@ namespace MachineACafe
                     ArgentRecupere >= boisson.Value.Cout)
                 {
                     assez = true;
+                    break;
                 }
             }
 
@@ -58,7 +59,8 @@ namespace MachineACafe
                 if (BoissonCourante.ToString() == boisson.Value.Nom.ToString() &&
                     ArgentRecupere >= boisson.Value.Cout)
                 {
-                    return ArgentRecupere - boisson.Value.Cout;
+                    rendu = ArgentRecupere - boisson.Value.Cout;
+                    break;
                 }
             }
             if (rendu == 0.0)
@@ -77,7 +79,7 @@ namespace MachineACafe
 
         public void ChoisirIngredient(EIngredient unIngredient)
         {
-            if (IngredientCourant != EIngredient.Aucun)
+            if (IngredientCourant != unIngredient)
             {
                 IngredientCourant = unIngredient;
                 Console.WriteLine("Nouvel ingrédient: {0}", IngredientCourant.ToString());
@@ -103,7 +105,14 @@ namespace MachineACafe
             if (uneBoisson != EBoisson.Aucune)
             {
                 BoissonCourante = uneBoisson;
-                Console.WriteLine("Boisson choisie: {0}", BoissonCourante.ToString());
+                foreach (var boisson in this.boissonDico)
+                {
+                    if(uneBoisson.ToString() == boisson.Value.getNom())
+                    {
+                        Console.WriteLine("Boisson choisie: {0}", BoissonCourante.ToString());
+                        Console.WriteLine("Prix: {0} euros", boisson.Value.getCout());
+                    }
+                }
             }
         }
 
@@ -113,7 +122,7 @@ namespace MachineACafe
             {
                 ArgentRecupere += nbreEuros;
                 Console.WriteLine("Vous avez inséré {0} euros.", nbreEuros);
-                Console.WriteLine("Argent récupéré: {0}", ArgentRecupere);
+                Console.WriteLine("Argent récupéré: {0} euros", ArgentRecupere);
             }
             else
             {
@@ -125,12 +134,17 @@ namespace MachineACafe
         {
             this.ChangeEtat(EEtat.EnMaintenance);
             Console.WriteLine("Etat courant: {0}", EtatCourant);
+            if (EtatCourant == EEtat.EnMaintenance)
+                Console.WriteLine("Réapprovissionnement des boissons...");
         }
 
-        public void RecuperationGobelet()
+        public void RecupererGobelet()
         {
+            if (EtatCourant == EEtat.Gagnant)
+                Console.WriteLine("Chocolat offert!");
+            else
+                Console.WriteLine("Récupérer le gobelet.");
             this.ChangeEtat(EEtat.EnCoursDeLivraison);
-            Console.WriteLine("Récupérer le gobelet.");
         }
 
         public void RecupererMonnaie()
@@ -141,14 +155,14 @@ namespace MachineACafe
 
         public void RemplirIngredient()
         {
-            this.ChangeEtat(EEtat.EnMaintenance);
             Console.WriteLine("En cours de réapprovisionnement d'ingrédients.");
+            this.ChangeEtat(EEtat.PasDePiece);
         }
 
         public void RendreMonnaie()
         {
             this.ChangeEtat(EEtat.EnCoursDeLivraison);
-            Console.WriteLine("Récupérer votre monnaie.{0}", ArgentRecupere);
+            Console.WriteLine("Récupérer votre monnaie: {0}", this.CalculRenduArgent());
         }
 
     }

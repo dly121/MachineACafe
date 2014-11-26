@@ -13,7 +13,6 @@ namespace MachineACafe
             : base(uneMachine)
         {
             machineACafe = uneMachine;
-            machineACafe.ChangeEtat(EEtat.PasDePiece);
         }
 
 
@@ -40,28 +39,29 @@ namespace MachineACafe
             }
             else
             {
-                machineACafe.InsererMonnaie(nbreEuros); 
+                machineACafe.InsererMonnaie(nbreEuros);
+                machineACafe.ChangeEtat(EEtat.Selection);
             }
         }
 
         public override void PasserEnMaintenance()
         {
-            throw new NotImplementedException();
+            machineACafe.PasserEnMaintenance();
         }
 
-        public override void RecuperationGobelet()
+        public override void RecupererGobelet()
         {
             throw new NotImplementedException();
         }
 
         public override void RecupererMonnaie()
         {
-            Console.WriteLine("Crédit: " + machineACafe.CalculRenduArgent());
+            throw new NotImplementedException();
         }
 
         public override void RendreMonnaie()
         {
-            Console.WriteLine("Crédit: " + machineACafe.CalculRenduArgent());
+            throw new NotImplementedException();
         }
     }
 }

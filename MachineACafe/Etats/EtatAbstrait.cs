@@ -15,7 +15,7 @@ namespace MachineACafe
         public abstract void ChoisirUneBoisson(EBoisson uneBoisson);
         public abstract void InsererMonnaie(double nbreEuros);
         public abstract void PasserEnMaintenance();
-        public abstract void RecuperationGobelet();
+        public abstract void RecupererGobelet();
         public abstract void RecupererMonnaie();
         public abstract void RendreMonnaie();
 

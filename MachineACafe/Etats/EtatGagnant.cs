@@ -12,8 +12,6 @@ namespace MachineACafe
             : base(uneMachine)
         {
             machineACafe = uneMachine;
-            machineACafe.ChangeEtat(EEtat.Gagnant);
-            machineACafe.ChoisirUneBoisson(EBoisson.Chocolat);
         }
 
         public override void ChoisirIngredient(EIngredient unIngredient)
@@ -28,8 +26,8 @@ namespace MachineACafe
 
         public override void ChoisirUneBoisson(EBoisson uneBoisson)
         {
-            machineACafe.ChoisirUneBoisson(uneBoisson);
             machineACafe.ChoisirUneBoisson(EBoisson.Chocolat);
+            machineACafe.ChangeEtat(EEtat.EnCoursDeLivraison);
         }
 
         public override void InsererMonnaie(double nbreEuros)
@@ -42,9 +40,9 @@ namespace MachineACafe
             throw new NotImplementedException();
         }
 
-        public override void RecuperationGobelet()
+        public override void RecupererGobelet()
         {
-            throw new NotImplementedException();
+            machineACafe.RecupererGobelet();
         }
 
         public override void RecupererMonnaie()

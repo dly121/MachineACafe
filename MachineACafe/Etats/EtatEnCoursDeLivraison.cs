@@ -12,7 +12,6 @@ namespace MachineACafe
             : base(uneMachine)
         {
             machineACafe = uneMachine;
-            machineACafe.ChangeEtat(EEtat.EnCoursDeLivraison);
         }
 
         public override void ChoisirIngredient(EIngredient unIngredient)
@@ -40,19 +39,21 @@ namespace MachineACafe
             throw new NotImplementedException();
         }
 
-        public override void RecuperationGobelet()
+        public override void RecupererGobelet()
         {
-            machineACafe.RecuperationGobelet();
+            machineACafe.RecupererGobelet();
+            machineACafe.ChangeEtat(EEtat.PasDePiece);
         }
 
         public override void RecupererMonnaie()
         {
-            machineACafe.RecupererMonnaie();
+            throw new NotImplementedException();
         }
 
         public override void RendreMonnaie()
         {
             machineACafe.RendreMonnaie();
+            machineACafe.ChangeEtat(EEtat.EnCoursDeLivraison);
         }
     }
 }

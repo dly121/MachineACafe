@@ -10,13 +10,21 @@ namespace MachineACafe
     {
         public static void Main(string[] args)
         {
-            //Initialisation des boissons
-            MachineACafe machine = new MachineACafe();
+            MachineACafe distributeur = new MachineACafe();
 
-            foreach (var boissons in machine.boissonDico)
-            {
-                Console.WriteLine(machine.boissonDico.Values.ToString());
-            }
+            EtatPasDePiece pasDePiece = new EtatPasDePiece(distributeur);
+            EtatSelection enSelection = new EtatSelection(distributeur);
+            EtatGagnant gagnant = new EtatGagnant(distributeur);
+            EtatEnCoursDeLivraison enLivraison = new EtatEnCoursDeLivraison(distributeur);
+            EtatMaintenance enMaintenance = new EtatMaintenance(distributeur);
+
+            pasDePiece.InsererMonnaie(2);
+            pasDePiece.InsererMonnaie(2);
+            enSelection.ChoisirSucre(3);
+            enSelection.ChoisirIngredient(EIngredient.Lait);
+            enSelection.ChoisirUneBoisson(EBoisson.ExpressoGrains);
+            enLivraison.RendreMonnaie();
+            enLivraison.RecupererGobelet();
 
             Console.ReadLine();
         }

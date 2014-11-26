@@ -12,12 +12,11 @@ namespace MachineACafe
             : base(uneMachine)
         {
             machineACafe = uneMachine;
-            machineACafe.ChangeEtat(EEtat.EnMaintenance);
         }
 
         public override void ChoisirIngredient(EIngredient unIngredient)
         {
-            Console.WriteLine("En maintenance");
+            throw new NotImplementedException();
         }
 
         public override void ChoisirSucre(int dosage)
@@ -37,10 +36,10 @@ namespace MachineACafe
 
         public override void PasserEnMaintenance()
         {
-            machineACafe.PasserEnMaintenance();
+            machineACafe.RemplirIngredient();
         }
 
-        public override void RecuperationGobelet()
+        public override void RecupererGobelet()
         {
             throw new NotImplementedException();
         }

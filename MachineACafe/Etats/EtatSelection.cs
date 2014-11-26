@@ -8,14 +8,15 @@ namespace MachineACafe
 {
     internal class EtatSelection : EtatAbstrait
     {
-        private Random rand;
+        internal int randomValue;
+        internal Random rand;
 
         public EtatSelection(MachineACafe uneMachine)
             : base(uneMachine)
         {
             machineACafe = uneMachine;
-            machineACafe.ChangeEtat(EEtat.Selection);
-            rand = null;
+            randomValue = 0;
+            rand = new Random();
         }
 
         public override void ChoisirIngredient(EIngredient unIngredient)
@@ -31,36 +32,18 @@ namespace MachineACafe
         public override void ChoisirUneBoisson(EBoisson uneBoisson)
         {
             machineACafe.ChoisirUneBoisson(uneBoisson);
-            /*
-            switch(uneBoisson)
+            randomValue = rand.Next(0, 100);
+            if (randomValue <= 10)
             {
-                case EBoisson.Expresso:
-                    Console.WriteLine(EBoisson.Expresso + "2.40 euros");
-                    break;
-                case EBoisson.ExpressoGrains:
-                    Console.WriteLine(EBoisson.ExpressoGrains + "2.50 euros");
-                    break;
-                case EBoisson.CaféLong:
-                    Console.WriteLine(EBoisson.CaféLong + "2.50 euros");
-                    break;
-                case EBoisson.CaféLongGrains:
-                    Console.WriteLine(EBoisson.CaféLongGrains + "2.60 euros");
-                    break;
-                case EBoisson.Chocolat:
-                    Console.WriteLine(EBoisson.Chocolat + "4.40 euros");
-                    break;
-                case EBoisson.Capuccino:
-                    Console.WriteLine(EBoisson.Capuccino + "4.50 euros");
-                    break;
-                default : Console.WriteLine(EBoisson.Aucune + " boisson sélectionnée.");
-                    break;
+                machineACafe.ChangeEtat(EEtat.Gagnant);
             }
-            */
+            else machineACafe.ChangeEtat(EEtat.EnCoursDeLivraison);
         }
 
         public override void InsererMonnaie(double nbreEuros)
         {
-            throw new NotImplementedException();
+            machineACafe.InsererMonnaie(nbreEuros);
+            machineACafe.ChangeEtat(EEtat.Selection);
         }
 
         public override void PasserEnMaintenance()
@@ -68,14 +51,15 @@ namespace MachineACafe
             throw new NotImplementedException();
         }
 
-        public override void RecuperationGobelet()
+        public override void RecupererGobelet()
         {
             throw new NotImplementedException();
         }
 
         public override void RecupererMonnaie()
         {
-            throw new NotImplementedException();
+            machineACafe.RecupererMonnaie();
+            machineACafe.ChangeEtat(EEtat.PasDePiece);
         }
 
         public override void RendreMonnaie()

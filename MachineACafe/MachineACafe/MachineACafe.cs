@@ -102,16 +102,24 @@ namespace MachineACafe
 
         public void ChoisirUneBoisson(EBoisson uneBoisson)
         {
+            Console.WriteLine("Boisson choisie: {0}", uneBoisson);
             if (uneBoisson != EBoisson.Aucune)
             {
-                BoissonCourante = uneBoisson;
-                foreach (var boisson in this.boissonDico)
+                if (this.AssezArgent(uneBoisson))
                 {
-                    if(uneBoisson.ToString() == boisson.Value.getNom())
+                    BoissonCourante = uneBoisson;
+                    foreach (var boisson in this.boissonDico)
                     {
-                        Console.WriteLine("Boisson choisie: {0}", BoissonCourante.ToString());
-                        Console.WriteLine("Prix: {0} euros", boisson.Value.getCout());
+                        if (uneBoisson.ToString() == boisson.Value.getNom())
+                        {
+                            Console.WriteLine("En préparation: {0}", BoissonCourante.ToString());
+                            Console.WriteLine("Prix: {0} euros", boisson.Value.getCout());
+                        }
                     }
+                }
+                else
+                {
+                    Console.WriteLine("Pas assez d'argent.");
                 }
             }
         }
@@ -126,6 +134,7 @@ namespace MachineACafe
             }
             else
             {
+                Console.WriteLine("Pièce non prise en charge: {0}", nbreEuros);
                 this.RecupererMonnaie();
             }
         }
@@ -140,29 +149,37 @@ namespace MachineACafe
 
         public void RecupererGobelet()
         {
-            if (EtatCourant == EEtat.Gagnant)
-                Console.WriteLine("Chocolat offert!");
-            else
-                Console.WriteLine("Récupérer le gobelet.");
-            this.ChangeEtat(EEtat.EnCoursDeLivraison);
+            if (this.BoissonCourante != EBoisson.Aucune &&
+                this.AssezArgent(BoissonCourante))
+            {
+                if (EtatCourant == EEtat.Gagnant)
+                    Console.WriteLine("Chocolat offert!\n");
+                else
+                    Console.WriteLine("Récupérer le gobelet: {0}, {1}, {2} sucre(s)\n", BoissonCourante, IngredientCourant, DosageSucre);
+                //this.ChangeEtat(EEtat.EnCoursDeLivraison);
+            }
+            else Console.WriteLine("Aucun gobelet à récupérer.\n");
         }
 
         public void RecupererMonnaie()
         {
-            this.ChangeEtat(EEtat.Selection);
+            //this.ChangeEtat(EEtat.Selection);
             Console.WriteLine("Recupérer la monnaie.");
         }
 
         public void RemplirIngredient()
         {
             Console.WriteLine("En cours de réapprovisionnement d'ingrédients.");
-            this.ChangeEtat(EEtat.PasDePiece);
+            //this.ChangeEtat(EEtat.PasDePiece);
         }
 
         public void RendreMonnaie()
         {
-            this.ChangeEtat(EEtat.EnCoursDeLivraison);
-            Console.WriteLine("Récupérer votre monnaie: {0}", this.CalculRenduArgent());
+            if(this.AssezArgent(BoissonCourante))
+            {
+                //this.ChangeEtat(EEtat.EnCoursDeLivraison);
+                Console.WriteLine("Récupérer votre monnaie: {0} euros", this.CalculRenduArgent());
+            }
         }
 
     }

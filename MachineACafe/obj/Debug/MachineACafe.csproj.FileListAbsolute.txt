@@ -3,4 +3,3 @@ C:\Users\David\documents\visual studio 2012\Projects\MachineACafe\MachineACafe\b
 C:\Users\David\documents\visual studio 2012\Projects\MachineACafe\MachineACafe\bin\Debug\MachineACafe.pdb
 C:\Users\David\documents\visual studio 2012\Projects\MachineACafe\MachineACafe\obj\Debug\MachineACafe.exe
 C:\Users\David\documents\visual studio 2012\Projects\MachineACafe\MachineACafe\obj\Debug\MachineACafe.pdb
-C:\Users\David\documents\visual studio 2012\Projects\MachineACafe\MachineACafe\obj\Debug\MachineACafe.csprojResolveAssemblyReference.cache

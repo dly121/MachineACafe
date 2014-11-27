@@ -26,6 +26,30 @@ namespace MachineACafe
             enLivraison.RendreMonnaie();
             enLivraison.RecupererGobelet();
 
+            pasDePiece.InsererMonnaie(1);
+            pasDePiece.InsererMonnaie(0.5);
+            enSelection.ChoisirSucre(2);
+            enSelection.ChoisirIngredient(EIngredient.Cannelle);
+            enSelection.ChoisirUneBoisson(EBoisson.CaféLong);
+            enLivraison.RendreMonnaie();
+            enLivraison.RecupererGobelet();
+
+            pasDePiece.InsererMonnaie(1);
+            pasDePiece.InsererMonnaie(0.8);
+            enSelection.ChoisirSucre(2);
+            enSelection.ChoisirIngredient(EIngredient.Chantilly);
+            enSelection.ChoisirUneBoisson(EBoisson.Capuccino);
+            enLivraison.RendreMonnaie();
+            enLivraison.RecupererGobelet();
+
+            pasDePiece.InsererMonnaie(1);
+            pasDePiece.InsererMonnaie(0.8);
+            enSelection.ChoisirSucre(2);
+            enSelection.ChoisirIngredient(EIngredient.Chantilly);
+            enSelection.ChoisirUneBoisson(EBoisson.Aucune);
+            enLivraison.RendreMonnaie();
+            enLivraison.RecupererGobelet();
+
             Console.ReadLine();
         }
     }

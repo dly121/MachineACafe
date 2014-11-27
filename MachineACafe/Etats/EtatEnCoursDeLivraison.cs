@@ -41,8 +41,17 @@ namespace MachineACafe
 
         public override void RecupererGobelet()
         {
-            machineACafe.RecupererGobelet();
+            if (machineACafe.AssezArgent(machineACafe.BoissonCourante) ||
+                machineACafe.EtatCourant == EEtat.Gagnant)
+            {
+                machineACafe.RecupererGobelet();
+            }
+            else
+            {
+                Console.WriteLine("Pas de gobelet à récupérer.\n");
+            }
             machineACafe.ChangeEtat(EEtat.PasDePiece);
+            machineACafe.ArgentRecupere = 0.0;
         }
 
         public override void RecupererMonnaie()
@@ -52,8 +61,11 @@ namespace MachineACafe
 
         public override void RendreMonnaie()
         {
-            machineACafe.RendreMonnaie();
-            machineACafe.ChangeEtat(EEtat.EnCoursDeLivraison);
+            if(machineACafe.AssezArgent(machineACafe.BoissonCourante))
+            {
+                machineACafe.RendreMonnaie();
+                machineACafe.ChangeEtat(EEtat.EnCoursDeLivraison);
+            }
         }
     }
 }

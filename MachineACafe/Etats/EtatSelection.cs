@@ -32,12 +32,20 @@ namespace MachineACafe
         public override void ChoisirUneBoisson(EBoisson uneBoisson)
         {
             machineACafe.ChoisirUneBoisson(uneBoisson);
-            randomValue = rand.Next(0, 100);
-            if (randomValue <= 10)
+            if (machineACafe.AssezArgent(uneBoisson))
             {
-                machineACafe.ChangeEtat(EEtat.Gagnant);
+                randomValue = rand.Next(0, 100);
+                if (randomValue <= 10)
+                {
+                    machineACafe.ChangeEtat(EEtat.Gagnant);
+                }
+                else machineACafe.ChangeEtat(EEtat.EnCoursDeLivraison);
             }
-            else machineACafe.ChangeEtat(EEtat.EnCoursDeLivraison);
+            else
+            {
+                machineACafe.ChangeEtat(EEtat.PasDePiece);
+                machineACafe.ArgentRecupere = 0.0;
+            }
         }
 
         public override void InsererMonnaie(double nbreEuros)

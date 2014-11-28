@@ -26,8 +26,10 @@ namespace MachineACafe
 
         public override void ChoisirUneBoisson(EBoisson uneBoisson)
         {
-            machineACafe.ChoisirUneBoisson(EBoisson.Chocolat);
-            machineACafe.ChangeEtat(EEtat.EnCoursDeLivraison);
+            if (machineACafe.EtatCourant == EEtat.Gagnant)
+            {
+                machineACafe.ChoisirUneBoisson(EBoisson.Chocolat);
+            }
         }
 
         public override void InsererMonnaie(double nbreEuros)
@@ -42,7 +44,11 @@ namespace MachineACafe
 
         public override void RecupererGobelet()
         {
-            machineACafe.RecupererGobelet();
+            if (machineACafe.EtatCourant == EEtat.Gagnant)
+            {
+                machineACafe.RecupererGobelet();
+                machineACafe.ChangeEtat(EEtat.EnCoursDeLivraison);
+            }
         }
 
         public override void RecupererMonnaie()

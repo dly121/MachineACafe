@@ -36,9 +36,14 @@ namespace MachineACafe
 
         public override void PasserEnMaintenance()
         {
-            machineACafe.RemplirIngredient();
-            machineACafe.ChangeEtat(EEtat.PasDePiece);
-            machineACafe.ArgentRecupere = 0.0;
+            if (machineACafe.EtatCourant == EEtat.EnMaintenance)
+            {
+                machineACafe.RemplirIngredient();
+                machineACafe.ChangeEtat(EEtat.PasDePiece);
+                machineACafe.tmp = 0.0;
+                machineACafe.DosageSucre = 0;
+                machineACafe.IngredientCourant = EIngredient.Aucun;
+            }
         }
 
         public override void RecupererGobelet()

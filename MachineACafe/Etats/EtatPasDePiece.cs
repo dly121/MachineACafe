@@ -46,6 +46,7 @@ namespace MachineACafe
 
         public override void PasserEnMaintenance()
         {
+            machineACafe.ChangeEtat(EEtat.EnMaintenance);
             machineACafe.PasserEnMaintenance();
         }
 

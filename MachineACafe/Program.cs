@@ -23,22 +23,52 @@ namespace MachineACafe
             enSelection.ChoisirSucre(3);
             enSelection.ChoisirIngredient(EIngredient.Lait);
             enSelection.ChoisirUneBoisson(EBoisson.ExpressoGrains);
+            gagnant.ChoisirUneBoisson(EBoisson.ExpressoGrains);
+            gagnant.RecupererGobelet();
             enLivraison.RendreMonnaie();
             enLivraison.RecupererGobelet();
 
+            pasDePiece.InsererMonnaie(2);
+            pasDePiece.InsererMonnaie(2);
+            pasDePiece.PasserEnMaintenance();
+            enMaintenance.PasserEnMaintenance();
+            enSelection.ChoisirSucre(3);
+            enSelection.ChoisirIngredient(EIngredient.Lait);
+            enSelection.ChoisirUneBoisson(EBoisson.ExpressoGrains);
+            gagnant.ChoisirUneBoisson(EBoisson.ExpressoGrains);
+            gagnant.RecupererGobelet();
+            enLivraison.RendreMonnaie();
+            enLivraison.RecupererGobelet();
+
+            pasDePiece.InsererMonnaie(2);
+            pasDePiece.InsererMonnaie(2);
+            enSelection.ChoisirSucre(3);
+            enSelection.ChoisirIngredient(EIngredient.Lait);
+            enSelection.ChoisirUneBoisson(EBoisson.ExpressoGrains);
+            gagnant.ChoisirUneBoisson(EBoisson.ExpressoGrains);
+            gagnant.RecupererGobelet();
+            enLivraison.RendreMonnaie();
+            enLivraison.RecupererGobelet();
+            
             pasDePiece.InsererMonnaie(1);
             pasDePiece.InsererMonnaie(0.5);
             enSelection.ChoisirSucre(2);
             enSelection.ChoisirIngredient(EIngredient.Cannelle);
             enSelection.ChoisirUneBoisson(EBoisson.CaféLong);
+            gagnant.ChoisirUneBoisson(EBoisson.ExpressoGrains);
+            gagnant.RecupererGobelet();
             enLivraison.RendreMonnaie();
             enLivraison.RecupererGobelet();
 
             pasDePiece.InsererMonnaie(1);
             pasDePiece.InsererMonnaie(0.8);
+            pasDePiece.PasserEnMaintenance();
+            enMaintenance.PasserEnMaintenance();
             enSelection.ChoisirSucre(2);
-            enSelection.ChoisirIngredient(EIngredient.Chantilly);
+            enSelection.ChoisirIngredient(EIngredient.Caramel);
             enSelection.ChoisirUneBoisson(EBoisson.Capuccino);
+            gagnant.ChoisirUneBoisson(EBoisson.ExpressoGrains);
+            gagnant.RecupererGobelet();
             enLivraison.RendreMonnaie();
             enLivraison.RecupererGobelet();
 
@@ -47,6 +77,19 @@ namespace MachineACafe
             enSelection.ChoisirSucre(2);
             enSelection.ChoisirIngredient(EIngredient.Chantilly);
             enSelection.ChoisirUneBoisson(EBoisson.Aucune);
+            gagnant.ChoisirUneBoisson(EBoisson.ExpressoGrains);
+            gagnant.RecupererGobelet();
+            enLivraison.RendreMonnaie();
+            enLivraison.RecupererGobelet();
+
+            pasDePiece.InsererMonnaie(2);
+            pasDePiece.InsererMonnaie(2);
+            pasDePiece.InsererMonnaie(2);
+            enSelection.ChoisirSucre(2);
+            enSelection.ChoisirIngredient(EIngredient.Chantilly);
+            enSelection.ChoisirUneBoisson(EBoisson.Capuccino);
+            gagnant.ChoisirUneBoisson(EBoisson.ExpressoGrains);
+            gagnant.RecupererGobelet();
             enLivraison.RendreMonnaie();
             enLivraison.RecupererGobelet();
 

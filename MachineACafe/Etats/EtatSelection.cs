@@ -44,7 +44,7 @@ namespace MachineACafe
             else
             {
                 machineACafe.ChangeEtat(EEtat.PasDePiece);
-                machineACafe.ArgentRecupere = 0.0;
+                machineACafe.tmp = 0.0;
             }
         }
 
